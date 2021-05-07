@@ -1,0 +1,90 @@
+<!DocType html>
+<html lang = "en">
+<head>
+    <meta charset="UTF-8">
+    <meta name = "viewport" content="width=device-width, initial-scale = 1.0">
+    <title> Alien Defender </title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
+    <link rel = "stylesheet" href="style.css">
+</head>
+
+<body>
+<iframe src="Login" title="description"> </iframe>
+
+<div id="highScoreInfo"> </div>
+<canvas id = "canvas1"> </canvas>
+<div class="gameStatus"> </div>
+<button class ="newGame" onclick="location.reload()"> New Game! </button>
+<button id ="startGame" class="newGame" onclick="startGame()"> START! </button>
+<button id = "instructions" class="instructions" > How To Play </button>
+<button id = "lightDark" class="newGame"> Light/Dark Mode</button>
+<div id = "myModal" class="modal">
+    <div class="modalContent">
+        <span class="close"> &times </span>
+        <p> 1.  Select a Defender and place him on the screen to defend
+            against the onslaught of Alien Invaders!</p>
+        <br>
+        <p> 2.  Kill the Aliens to earn points, and buy more
+            Defenders!</p>
+        <br>
+        <p> 3.  Collect stars to earn even more points, and buy more
+            Defenders!</p>
+        <br>
+        <p> Your Scores will automatically post to the Comp426 Twitter page!!</p>
+        <br>
+        <p> Can you decimate your classmates, achieve victory, and
+            claim the HIGHEST score?! </p>
+    </div>
+</div>
+
+<div id="newsBanner">
+    <div id="slider"> </div>
+</div>
+<script src="https://unpkg.com/axios@0.21.0/dist/axios.min.js"></script>
+<script src ="script.js"> </script>
+
+<script>
+    let button = document.getElementById('startGame');
+    let canvas = document.getElementById('canvas1');
+    button.addEventListener('mouseenter', e => {canvas.classList.add('active')});
+    button.addEventListener('mouseleave', e => {canvas.classList.remove('active')});
+</script>
+
+<script>
+    let body = document.body;
+    let swapBtn = document.getElementById('lightDark')
+    let currentTheme = localStorage.getItem('currentTheme')
+    if(currentTheme) {
+        body.classList.add('lightMode');
+    }
+    swapBtn.addEventListener('click', () => {
+        document.body.classList.toggle('lightMode');
+
+        if(body.classList.contains('lightMode')) {
+            localStorage.setItem('currentTheme', 'themeActive');
+        } else {
+            localStorage.removeItem('currentTheme');
+        }
+    });
+
+</script>
+
+<script>
+    let modal = document.getElementById("myModal");
+    let btn = document.getElementById("instructions");
+    let span = document.getElementsByClassName("close")[0];
+    btn.onclick = function() {
+        modal.style.display = "block";
+    }
+    span.onclick = function() {
+        modal.style.display = "none";
+    }
+    window.onclick = function(e) {
+        if (e.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+</script>
+</body>
+</html>
