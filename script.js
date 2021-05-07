@@ -638,7 +638,7 @@ function startGame () {
         ctx.fillText('Score: ' + score, 300, 40);
         ctx.fillText('Resources: ' + numberOfResources, 300, 80);
         if (gameOver) {
-            if (score <= 10000) {
+            if (score <= 4000) {
                 let myGradient = ctx.createLinearGradient(0, 0, 1200, 0,)
                 myGradient.addColorStop(0, 'orange');
                 myGradient.addColorStop(0.4, 'red');
@@ -649,7 +649,7 @@ function startGame () {
                 updateHighScore(score);
                 document.getElementById('canvas1')
                 create(' I Suck! My Score is: ' + score + ' in Alien Defender!');
-            } else if (score > 10000 && score <= 30000) {
+            } else if (score > 4000 && score <= 8000) {
                 let myGradient2 = ctx.createLinearGradient(0, 0, 1200, 0,)
                 myGradient2.addColorStop(0, 'orange');
                 myGradient2.addColorStop(0.4, 'red');
@@ -660,7 +660,7 @@ function startGame () {
                 ctx.fillText('Game Over', 150, 340);
                 updateHighScore(score)
                 create('I shouldnt quit my day job! My Score is: ' + score + ' in Alien Defender!')
-            } else if (score > 30000 && score <= 49999) {
+            } else if (score > 8000 && score <= 10000) {
                 let myGradient3 = ctx.createLinearGradient(0, 0, 1200, 0,)
                 myGradient3.addColorStop(0, 'orange');
                 myGradient3.addColorStop(0.4, 'red');
@@ -671,7 +671,7 @@ function startGame () {
                 ctx.fillText('Game Over', 150, 340);
                 updateHighScore(score)
                 create('Started from the bottom, now Im here! My Score is: ' + score + ' in Alien Defender!')
-            } else if (score >= 50000) {
+            } else if (score >= 10000) {
                 let myGradient4 = ctx.createLinearGradient(0, 0, 1200, 0,)
                 myGradient4.addColorStop(0, 'orange');
                 myGradient4.addColorStop(0.4, 'red');
